@@ -43,27 +43,27 @@ function daBears(){
 // Which function(s) access the "chair" variable and get "Too Big!"
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale1 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+var fairyTale1 = ["papaBear", "mamaBear"];
 
 // Which function(s) access the "feeling" variable and get "Hungry"
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale2 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+var fairyTale2 = ["goldilocks"];
 
 // Which function(s) access the "porridge" variable and get "Too Cold!"
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale3 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+var fairyTale3 = ["mamaBear"];
 
 // Which function(s) access the "sleepy" variable and get undefined
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale4 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+var fairyTale4 = ["daBears", "papaBear", "mamaBear", "goldilocks"];
 
 // Which function(s) access the isFurry variable and get true
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear"];
 
 
 // *************
@@ -82,6 +82,21 @@ var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
 // "charger" once, and invoke it twice on "mustang".
 
 // CODE HERE...
+function Vehicle(){
+  this.gasRemaining = 100;
+}
+
+Vehicle.prototype.drive = function(){
+  return this.gasRemaining -= 25
+}
+
+let charger = new Vehicle();
+let mustang = new Vehicle();
+
+charger.drive();
+mustang.drive();
+mustang.drive();
+
 
 
 
@@ -105,9 +120,29 @@ var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
 // and should neither modify them nor break when encountering them.
 
 
-
-
 // CODE HERE...
+
+String.prototype.grammarPolice = function(){
+  let split = this.split(" ");
+  for(let i = 0; i < split.length; i++){
+    let eachWord = '';
+    for(let j = 0; j < split[i].length; j++){
+      if(/([A-Z]|[a-z])/g.test(split[i][j])) {
+        if(j === 0) {
+          eachWord += split[i][j].toUpperCase()
+        }
+        else {
+          eachWord += split[i][j].toLowerCase()
+        }
+      }
+      else {
+        eachWord += split[i][j] 
+      }
+    }
+    split[i] = eachWord
+  }
+  return split.join(" ")
+}
 
 
 
@@ -127,6 +162,17 @@ var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
 
 // CODE HERE...
 
+function valueType( param1, param2 ) {
+  if( param1 === param2 ) {
+    return "Exactly the same"
+  }
+  else if ( param1 == param2) {
+    return "Same value, different types"
+  }
+  else {
+    return "Different values"
+  }
+}
 
 
 // *************
@@ -141,3 +187,9 @@ var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
 var theAnswer = "Unknown";
 
 // CODE HERE...
+
+function promiseCatcher( promise ) {
+  promise.then( ( res ) => {
+    theAnswer = res
+  })
+}
